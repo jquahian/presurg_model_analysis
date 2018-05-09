@@ -152,19 +152,20 @@ def desc_corr():
 
 
 # use this to plot a single group vs. a single measure
-# single_plotter()
+single_plotter()
 
 # use this to plot multiple groups vs. multiple measures
-'''
 x = [measures_time, measures_cost]
 y = ['time', 'cost']
 
 for valx in x:
 	for valy in y:
 		multi_measure_plotter(valx, valy)
-'''
 
 # use this to create a two text summaries of the data
-# summarized_cost_data('cost', 'material_cost', 'operator_cost', 'segment_time', 'post_process_time', 'print_time', 'material_quantity')
+summarized_cost_data('cost', 'material_cost', 'operator_cost', 'segment_time', 'post_process_time', 'print_time', 'material_quantity')
 
+# use this to generate descriptive measures and correlation
 desc_corr()
+
+print('All caught-up!')
