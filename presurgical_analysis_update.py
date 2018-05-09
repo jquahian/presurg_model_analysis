@@ -133,7 +133,7 @@ def descriptive_data():
 		num_pins = df['num_pins'].sum()
 		num_magnets = df['num_magnets'].sum()
 
-		print(f'Number of Unique Requestors: {num_unique_requestors}, \nNumber of Unique Reviewers: {num_unique_reviewers}, \nNumber of Unique Pathologies: {num_unique_pathologies}, \nNumber of Imaging Modalities: {num_modalities}, \nNumber of Pins used during Assembly: {num_pins}, \nNumber of Mangets used during Assembly: {num_magnets}', file=text_file)
+		print(f'Number of Unique Requestors: \n{num_unique_requestors} \n\nNumber of Unique Reviewers: \n{num_unique_reviewers} \n\nNumber of Unique Pathologies: \n{num_unique_pathologies} \n\nNumber of Imaging Modalities: \n{num_modalities} \n\nNumber of Pins used during Assembly: \n{num_pins} \n\nNumber of Mangets used during Assembly: \n{num_magnets}', file=text_file)
 
 def summarized_data(*arg):
 	with open('summarized_cost_data.txt', 'w') as text_file:
@@ -161,4 +161,4 @@ for valx in x:
 '''
 
 # use this to create a two text summaries of the data
-# summarized_data('cost', 'material_cost', 'operator_cost', 'segment_time', 'post_process_time', 'print_time', 'material_quantity')
+summarized_data('cost', 'material_cost', 'operator_cost', 'segment_time', 'post_process_time', 'print_time', 'material_quantity')
