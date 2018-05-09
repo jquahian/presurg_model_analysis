@@ -123,7 +123,7 @@ def multi_measure_plotter(measures, measure_type):
 			plt.close('all')
 
 
-def descriptive_data():
+def summarized_data():
 	with open('data_overview.txt', 'w') as text_file:
 
 		num_unique_requestors = df['requestor'].value_counts()
@@ -135,7 +135,7 @@ def descriptive_data():
 
 		print(f'Number of Unique Requestors: \n{num_unique_requestors} \n\nNumber of Unique Reviewers: \n{num_unique_reviewers} \n\nNumber of Unique Pathologies: \n{num_unique_pathologies} \n\nNumber of Imaging Modalities: \n{num_modalities} \n\nNumber of Pins used during Assembly: \n{num_pins} \n\nNumber of Mangets used during Assembly: \n{num_magnets}', file=text_file)
 
-def summarized_data(*arg):
+def summarized_cost_data(*arg):
 	with open('summarized_cost_data.txt', 'w') as text_file:
 		for args in arg:
 			total = df[args].sum()
@@ -144,7 +144,11 @@ def summarized_data(*arg):
 
 			print(args + f'\nTotal: ${round(total, 2)} \nAverage: ${round(avg, 2)} \nstdev: +/-{round(std, 2)}\n\n', file = text_file)
 
-	descriptive_data()
+	summarized_data()
+
+def desc_corr():
+	df.corr().to_csv('corr.csv')
+	df.describe().to_csv('describe.csv')
 
 
 # use this to plot a single group vs. a single measure
@@ -161,4 +165,6 @@ for valx in x:
 '''
 
 # use this to create a two text summaries of the data
-summarized_data('cost', 'material_cost', 'operator_cost', 'segment_time', 'post_process_time', 'print_time', 'material_quantity')
+# summarized_cost_data('cost', 'material_cost', 'operator_cost', 'segment_time', 'post_process_time', 'print_time', 'material_quantity')
+
+desc_corr()
