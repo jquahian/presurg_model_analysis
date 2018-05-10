@@ -72,7 +72,6 @@ def single_plotter():
 							bbox_inches='tight')
 
 				plt.clf()
-				plt.close('all')
 
 
 def multi_measure_plotter(measures, measure_type):
@@ -120,7 +119,6 @@ def multi_measure_plotter(measures, measure_type):
 						dpi=300)
 
 			plt.clf()
-			plt.close('all')
 
 
 def summarized_data():
@@ -155,12 +153,8 @@ def desc_corr():
 single_plotter()
 
 # use this to plot multiple groups vs. multiple measures
-x = [measures_time, measures_cost]
-y = ['time', 'cost']
-
-for valx in x:
-	for valy in y:
-		multi_measure_plotter(valx, valy)
+multi_measure_plotter(measures_time, 'time')
+multi_measure_plotter(measures_cost, 'cost')
 
 # use this to create a two text summaries of the data
 summarized_cost_data('cost', 'material_cost', 'operator_cost', 'segment_time', 'post_process_time', 'print_time', 'material_quantity')
